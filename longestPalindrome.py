@@ -5,6 +5,11 @@ class LongestPalindrome(object):
 		self.size = len(string)
 
 	def find_longest_palindrome(self):
+		if self.size == 0:
+			return '', (0, 0)
+		elif self.size == 1:
+			return self.string, (0, 1)
+
 		odd_radius, best_odd_center = max(self.iter_odd_palindromes_per_center())
 		even_radius, best_even_left_center = max(self.iter_even_palindromes_per_left_center())
 
@@ -18,7 +23,8 @@ class LongestPalindrome(object):
 			left = best_even_left_center - even_radius + 1
 			right = best_even_left_center + even_radius
 
-		return (left, right), self.string[left:right + 1]
+		substring = self.string[left : right+1]
+		return substring, (left, right+1)
 
 
 	# Yields (center, radius_around_center)
@@ -61,8 +67,3 @@ class LongestPalindrome(object):
 					break
 
 			return best_radius
-
-
-print LongestPalindrome('abcdefg').find_longest_palindrome()
-print LongestPalindrome('abcba').find_longest_palindrome()
-print LongestPalindrome('ayabaabccbaabax').find_longest_palindrome()
