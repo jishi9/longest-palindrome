@@ -12,6 +12,6 @@ cc_library(
 
 cc_test(
 	name = "manacher_test",
-	srcs = ["catch.h"],
+	srcs = ["manacher_test.cc", "catch.h"],
 	deps = [":manacher"]
 )

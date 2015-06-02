@@ -111,18 +111,3 @@ StringView findLongestPalindrome(const string& input_text) {
     }
     return StringView(input_text, inclusive_begin, exclusive_end);
 }
-
-int main(int argc, char const *argv[])
-{
-    std::cout
-    << findLongestPalindrome("").as_string() << std::endl
-    << findLongestPalindrome("a").as_string() << std::endl
-    << findLongestPalindrome("ab").as_string() << std::endl
-    << findLongestPalindrome("aa").as_string() << std::endl
-    << findLongestPalindrome("aaa").as_string() << std::endl
-    << findLongestPalindrome("aaabbb").as_string() << std::endl
-    << findLongestPalindrome("abaaba").as_string() << std::endl
-    << findLongestPalindrome("cabcbabcbabcba").as_string() << std::endl
-    ;
-    return 0;
-}
